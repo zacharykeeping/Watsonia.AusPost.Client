@@ -22,7 +22,7 @@ namespace Watsonia.AusPost.Client
 		/// <value>
 		///   <c>true</c> if in testing; otherwise, <c>false</c>.
 		/// </value>
-		internal bool Testing { get; set; }
+		public bool Testing { get; set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ShippingClient" /> class.
@@ -30,12 +30,13 @@ namespace Watsonia.AusPost.Client
 		/// <param name="accountNumber">The Australia Post account number.</param>
 		/// <param name="username">The Australia Post API _username.</param>
 		/// <param name="password">The Australia Post API _password.</param>
-		public ShippingClient(string accountNumber, string username, string password)
+		public ShippingClient(string accountNumber, string username, string password, bool testing = false)
 		{
 			_accountNumber = accountNumber;
 			_username = username;
 			_password = password;
-		}
+            Testing = testing;
+        }
 
 		/// <summary>
 		/// This interface retrieves information regarding the requestor’s charge account and the postage products that the charge account is able to use.
